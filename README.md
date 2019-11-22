@@ -16,11 +16,10 @@
 
 ## Links
 
-* Github Code: `<insert Github repository link here>`
-* Github Proposal: `<insert Proposal Pull Request here>`
-* Trello/Github Project Kanban: `<insert trello board here>`
-* Test Flight Signup (Recommended): `<insert beta signup link here>`
-* YouTube demo video (Recommended): `<insert video url here>`
+* Github Code: `<https://github.com/alexnrhodes/FowlWeather>`
+* Github Proposal: `https://github.com/alexnrhodes/ios-build-sprint-project-proposal`
+* Trello/Github Project Kanban: `<https://trello.com/b/03n4pMi0/fowlweather>`
+* Test Flight Signup (Recommended): `<https://testflight.apple.com/join/Uj050Pom>`
 
 ## Hero Image
 
@@ -30,27 +29,43 @@
 
 1. What was your favorite feature to implement? Why?
 
-    `<Your answer here>`
+`Definitely the search feature.  It took quite a bit of logic to minimalize the backend code.`
 
 2. What was your #1 obstacle or bug that you fixed? How did you fix it?
 
-    `<Your answer here>`
+`Our largest bug was with not taking into account ALL of the different weather edge cases.`
   
 3. Share a chunk of code (or file) you're proud of and explain why.
-
-    `<Your answer here>`
-  
+```
+    ` func fetchCLLocationFromSearch(with searchTerm: String) {
+           geocoder.geocodeAddressString(searchTerm) { (placeMarks, error) in
+               if let error = error {
+                   NSLog("Error getting CLLocation from searchTerm: \(searchTerm) with error:\(error)")
+                   return
+               }
+               
+               guard let placemark = placeMarks?.first,
+                   let location = placemark.location else { return }
+               self.searchedLocation = location
+           }
+       }
+ ``` 
+ `This one was cool because it was a new function I had never used before and it is extremely powerful`
+ 
 4. What is your elevator pitch? (30 second description your Grandma or a 5-year old would understand)
+    `Is you're dad constantly asking if it is going to rain today?` 
+    `Are your eyes starting to hurt from all of the eye rolling at your dads tired jokes?`
+    `Say no more.`
+    `Introducing Fowl Weather!`
+    `A place where your dad joke enthusiast can tell if it's going to rain and make those hard decisions like, whether or not they can wear their crocs!  All while getting fresh new dad joke material!`
 
-    `<Your answer here>`
-  
 5. What is your #1 feature?
 
-    `<Your answer here>`
+`Dad joke generator.`
   
 6. What are you future goals?
 
-    `<Your answer here>`
+`Implement a detail view for the forcast.  Adding a weather map`
 
 ## Required Slides (Add your Keynote to your PR)
 
